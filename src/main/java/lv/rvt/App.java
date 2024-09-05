@@ -6,16 +6,20 @@ public class App
 {
     public static void main( String[] args )
     {
-        Scanner scanner = new Scanner(System.in);
+        String text = "None!";
+        int chicken = 3;
+        double bacon = 5.5;
 
-        // Mēs gribam uzzinat no lietotaja vardu, uzvardu un gruppu
-        System.out.println("Ievadi savu vārdu: ");
-        String name = scanner.nextLine();
-        System.out.println("Ievadi savu uzvārdu: ");
-        String second_name = scanner.nextLine();
-        System.out.println("Ievadi savu gruppu: ");
-        String group = scanner.nextLine();
-        // Un beigās printēt visu kopā vienā rindiņā izmantojot String savienošanu
-        System.out.println(name + " " + second_name + " " + group);
+        System.out.println("Chicken:");
+        System.out.println(chicken);
+        System.out.println("Bacon (kg):");
+        System.out.println(bacon);
+        System.out.println("Tractor:");
+        System.out.println(text);
+        System.out.println();
+        System.out.println("And finally, a summary:");
+        System.out.println(chicken);
+        System.out.println(bacon);
+        System.out.println(text);
     }
 }
