@@ -8,15 +8,14 @@ public class App
     {
         Scanner scanner = new Scanner(System.in);
 
-        System.out.println("Ievadi savu vārdu: ");
-        String name = scanner.nextLine();
+        System.out.println("Give the first number: ");
+        int firstnumber = Integer.valueOf(scanner.nextLine());
+        
+        System.out.println("Give the second number: ");
+        int secondnumber = Integer.valueOf(scanner.nextLine());
 
-        System.out.println("Ievadi savu uzvārdu: ");
-        String lastname = scanner.nextLine();
+        System.out.println(firstnumber + " + " + secondnumber + " = " + (firstnumber + secondnumber));
 
-        System.out.println("Ievadi savu grupu: ");
-        String group = scanner.nextLine();
 
-        System.out.println("Students: " + name + " " + lastname + ", grupa: " + group);
     }
 }
