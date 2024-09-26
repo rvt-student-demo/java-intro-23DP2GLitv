@@ -8,11 +8,19 @@ public class App
     {
         Scanner scanner = new Scanner(System.in);
 
-        int start = Integer.valueOf(scanner.nextLine());
-
-       for (int i = start; i < 101; i++) {
-        System.out.println(i);
-       } 
+        System.out.println("Give a number:");
+        int end = Integer.valueOf(scanner.nextLine());
+        int fact = 1;
+        if (end == 0) {
+            System.out.println("Factorial: " + fact);
+        }
+        else {
+            for (int i = 1; i < end + 1; i++) {
+            fact = fact * i;
+        }
+        System.out.println("Factorial: " + fact);
+        }
+        
 }
 }
 
