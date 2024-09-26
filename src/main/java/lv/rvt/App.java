@@ -7,19 +7,33 @@ public class App
     public static void main( String[] args )
     {
         Scanner scanner = new Scanner(System.in);
+        int sum = 0;
+        int numbers = 0;
+        int odd = 0;
+        int even = 0;
+        System.out.println("Give numbers: ");
+        while (true) {
+            int number = Integer.valueOf(scanner.nextLine());
+            if (number == -1) {
+                break;
+            }
+            sum = sum + number;
+            numbers++;
+            if (number % 2 == 0) {
+                even++;
+            }
+            else {
+                odd++;
+            }
 
-        System.out.println("Give a number:");
-        int end = Integer.valueOf(scanner.nextLine());
-        int fact = 1;
-        if (end == 0) {
-            System.out.println("Factorial: " + fact);
+
         }
-        else {
-            for (int i = 1; i < end + 1; i++) {
-            fact = fact * i;
-        }
-        System.out.println("Factorial: " + fact);
-        }
+        System.out.println("Thx! Bye!");
+        System.out.println("Sum: " + sum);
+        System.out.println("Numbers: " + numbers);
+        System.out.println("Average: " + (double)sum / numbers);
+        System.out.println("Even: " + even);
+        System.out.println("Odd: " + odd);
         
 }
 }
