@@ -6,21 +6,22 @@ public class App
 {
     public static void main( String[] args )
     {
-        /* Stars.printStars(5);
-        Stars.printStars(3);
-        Stars.printStars(9);
-        System.out.println("");
-        Stars.printSquare(4);
-        System.out.println("");
-        Stars.printRectangle(17, 3);
-        System.out.println("");
-        Stars.printTriangle(4); */
-        Stars.printRightTriangle(4);
-        System.out.println("");
-        Stars.chistmasTree(4);
-        System.out.println("");
-        Stars.chistmasTree(10);
+        Scanner scanner = new Scanner(System.in);
+        ArrayList<Integer> numbers = new ArrayList<>();
+
+        int summa = 0;
+        while (true) {
+            int number = Integer.valueOf(scanner.nextLine());
+            if (number == 0) {
+                break;
+            }
+            summa = summa + number;
+
+        }
+        System.out.println(summa);
+
         
+
         
 }
     
