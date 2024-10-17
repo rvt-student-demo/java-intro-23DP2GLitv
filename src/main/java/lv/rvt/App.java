@@ -9,7 +9,7 @@ public class App
         Scanner scanner = new Scanner(System.in);
         Random rand = new Random();
 
-        int val = rand.nextInt(10)+1;
+        int val = rand.nextInt(10) + 1;
         int three_try = 3;
         
         System.out.println("I am thinking of a number from 1 to 10.");
@@ -24,12 +24,21 @@ public class App
                 break;
             }
             else {
-                System.out.println("wrong");
                 three_try--;
                 if (three_try == 0) {
+                    System.out.println("wrong.");
                     System.out.println("The correct number was " + val + ".");
                     System.out.println("You have lost the game.");
                     break;
+                }
+                else if (guess - val >=  3 || guess - val <= -3) {
+                    System.out.println("cold");
+                }
+                else if (guess - val == 2 || guess - val == -2) {
+                    System.out.println("warm");
+                }
+                else if (guess - val == 1 || guess - val == -1) {
+                    System.out.println("hot");
                 }
             }
             
