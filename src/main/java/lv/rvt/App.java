@@ -8,40 +8,70 @@ public class App
     {
         Scanner scanner = new Scanner(System.in);
         Random rand = new Random();
+        int round = 0;
+        int guessed = 0;
+        int end = 0;
 
-        int val = rand.nextInt(10) + 1;
-        int five_try = 5;
-        
-        System.out.println("I am thinking of a number from 1 to 10.");
-        System.out.println("Try to guess the number.");
-        System.out.println("Your beginning score is 5 points.");
-        System.out.println("Each time you guess wrong, your score is decreased by one.");
-        System.out.print("Enter a guess: ");
-        
         while (true) {
-            int guess = Integer.valueOf(scanner.nextLine());
-            if (guess == val) {
-                System.out.println("You WON the game.");
+            int val = rand.nextInt(10) + 1;
+            int three_try = 3;
+            round++;
+            System.out.println("round " + round + ":");
+            System.out.println("");
+            System.out.println("I am thinking of a number from 1 to 10.");
+            System.out.println("You must guess what it is in three tries.");
+            System.out.println("Enter a guess: ");
+            if (end == 1) {
                 break;
             }
+            while (true) {
+                int guess = Integer.valueOf(scanner.nextLine());
+            if (guess == val) {
+                System.out.println("RIGHT!");
+                guessed++;
+                System.out.println("You have won " + guessed + " out of " + round + " rounds.");
+                break;
+            }
+            if (round == 10) {
+                System.out.println("You have won " + guessed + " out of 10 rounds.");
+                if (guessed <= 7) {
+                    System.out.println("Your rating: amateur.");
+                }
+                else if (guessed == 8) {
+                    System.out.println("Your rating: advanced.");
+                }
+                else if (guessed == 9) {
+                    System.out.println("Your rating: professional.");
+                }
+                else if (guessed == 10) {
+                    System.out.println("Your rating: hacker.");
+                }
+                end = 1;
+            }
             else {
-                five_try--;
-                System.out.println("Too Low! Your score is now " + five_try);
-                if (five_try == 0) {
-                    System.out.println("You lost.");
+                three_try--;
+                if (three_try == 0) {
+                    System.out.println("wrong.");
+                    System.out.println("The correct number was " + val + ".");
+                    System.out.println("You have won " + guessed + " out of " + round + " rounds.");
                     break;
                 }
-            }
-            
+                else if (guess - val >=  3 || guess - val <= -3) {
+                    System.out.println("cold");
+                }
+                else if (guess - val == 2 || guess - val == -2) {
+                    System.out.println("warm");
+                }
+                else if (guess - val == 1 || guess - val == -1) {
+                    System.out.println("hot");
+                }
+            } 
         
         }
-        System.out.println("Your score is " + five_try);
         
-
-
         
-
-        
+            }
+                  
 }
     
 }
