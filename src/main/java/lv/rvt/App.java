@@ -8,6 +8,16 @@ public class App
     {
         Scanner scanner = new Scanner(System.in);
         Person ada = new Person("Ada");
+        Person maksims = new Person("Maksims");
+
+        Product Banana = new Product("Banana", 1.1, 13);
+        
+        ada.printPerson();
+        maksims.printPerson();
+        System.out.println("");
+
+        Banana.printProduct();
+
 }
                   
 }
