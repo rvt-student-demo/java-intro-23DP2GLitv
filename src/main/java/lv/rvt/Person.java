@@ -13,4 +13,8 @@ public class Person {
     public void printPerson() {
         System.out.println(this.name + ", age " + this.age + " years");
     }
+
+    public void growOlder() {
+        this.age = this.age + 1;
+    }
 }

@@ -7,17 +7,16 @@ public class App
     public static void main( String[] args )
     {
         Scanner scanner = new Scanner(System.in);
-        Person ada = new Person("Ada");
-        Person maksims = new Person("Maksims");
-
-        Product Banana = new Product("Banana", 1.1, 13);
         
-        ada.printPerson();
-        maksims.printPerson();
-        System.out.println("");
+        DecreasingCounter counter = new DecreasingCounter(100);
 
-        Banana.printProduct();
+        counter.printValue();
 
+        counter.reset();
+        counter.printValue();
+
+        counter.decrement();
+        counter.printValue();
 }
                   
 }
