@@ -42,7 +42,7 @@ public class Person {
     }
 
     public String toString() {
-        return this.name + ", age " + this.age + " years";
+        return this.name + ", age " + this.age + " years, my body mass index is " + this.bodyMassIndex();
     }
 
     public void setHeight(int newHeight) {
