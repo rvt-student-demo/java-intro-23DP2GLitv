@@ -1,37 +1,36 @@
 package lv.rvt;
 
+import java.io.BufferedReader;
+import java.io.IOException;
 import java.util.*;
 
 public class App 
 {
-    public static void main( String[] args )
+    public static void main( String[] args) throws Exception
     {
-        Scanner scanner = new Scanner(System.in);
-        Statistics statistics = new Statistics();
-        System.out.println("Enter numbers: ");
-        int odd = 0;
-        int even = 0;
-        while (true) {
-            int skaitlis = Integer.valueOf(scanner.nextLine());
-            
-            if (skaitlis == -1) {
-                break;
-            }
+        BufferedReader reader = Utils.getReader("persons.csv");
+        ArrayList<Person> persons = new ArrayList<>();
+        
+        double average = 0;
+        String line;
+        reader.readLine();
 
-            else {
-                statistics.addNumber(skaitlis);
-                if (skaitlis % 2 == 0) {
-                    odd = odd + skaitlis;
-                }
-                else {
-                    even = even + skaitlis;
-                }
-            }
+
+        while ((line = reader.readLine()) != null) {
+            String[] parts = line.split(", ");
+            /* System.out.println("Array: " + Arrays.toString(parts)); */
+            Person person = new Person(parts[0], Integer.valueOf(parts[1]), Integer.valueOf(parts[2]), Integer.valueOf(parts[3]));
+            /* System.out.println("CSV line: " + line); */
+            persons.add(person);
         }
-        System.out.println("Sum: " + statistics.sum());
-        System.out.println("Sum of odd numbers: " + odd);
-        System.out.println("Sum of even numbers: " + even);
-    
+        for (Person person : persons) {
+            System.out.println(person);
+            average = average + person.returnAge();
+        }
+        System.out.println("Average age: " + average / 4);
+
+
+  
 }
                   
 }
