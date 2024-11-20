@@ -1,8 +1,10 @@
 package lv.rvt;
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.util.ArrayList;
 import java.io.IOException;
+import java.nio.file.StandardOpenOption;
 
 public class PersonManager {
     public static ArrayList<Person>getPersonList() throws Exception {
@@ -20,4 +22,13 @@ public class PersonManager {
     }
     return persons;
 }
+    public static void addPerson(Person person) throws Exception {
+        BufferedWriter writer = Helper.getWriter("data.csv", StandardOpenOption.APPEND);
+
+        writer.write(person.toCsvRow());
+        writer.newLine();
+        writer.close();
+    
+    }
+
 }
