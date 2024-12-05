@@ -7,7 +7,7 @@ public class Person {
     private int height;
 
     // Class constructor
-    public Person(String initialName, int age, int weight, int height) {
+    public Person(String initialName, int age, int height, int weight) {
         this.name = initialName;
         this.age = age;
         this.weight = weight;
@@ -41,6 +41,14 @@ public class Person {
         return this.name;
     }
 
+    public int getWeight() {
+        return this.weight;
+    }
+
+    public void setWeight() {
+        this.weight++;
+    }
+
 
     public String toString() {
         return this.name + " " + this.age + " " + this.weight + " " + this.height;
@@ -60,6 +68,6 @@ public class Person {
     }
 
     public String toCsvRow() {
-        return this.name + " " + this.age + " " + this.weight + " " + this.height;
+        return this.name + ", " + this.age + ", " + this.weight + ", " + this.height;
     }
 }
