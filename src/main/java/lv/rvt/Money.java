@@ -45,4 +45,19 @@ public class Money {
 
         return false;
     }
+
+    public Money minus(Money decreaser) {
+        Money minusMoney = new Money(euros() - decreaser.euros(), cents() - decreaser.cents());
+        
+        if (minusMoney.cents() < 0) {
+            minusMoney = new Money(minusMoney.euros() - 1, minusMoney.cents() + 100);
+        }
+
+        if (minusMoney.euros() < 0) {
+            minusMoney = new Money(0, 0);
+            
+        }
+
+        return minusMoney;
+    }
 }
