@@ -33,4 +33,16 @@ public class Money {
         // return the new Money object
         return newMoney;
     }
+
+    public boolean lessThan(Money compared) {
+        if (euros < compared.euros()) {
+            return true;
+        }
+
+        if (euros == compared.euros() && cents < compared.cents()) {
+            return true;
+        }
+
+        return false;
+    }
 }
