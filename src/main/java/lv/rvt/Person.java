@@ -5,10 +5,12 @@ public class Person {
     private int age;
     private int weight;
     private int height;
+    private String adress;
 
     // Class constructor
-    public Person(String initialName, int age, int height, int weight) {
+    public Person(String initialName, String adress) {
         this.name = initialName;
+        this.adress = adress;
         this.age = age;
         this.weight = weight;
         this.height = height;
@@ -39,6 +41,10 @@ public class Person {
 
     public String getName() {
         return this.name;
+    }
+
+    public String getAdress() {
+        return this.adress;
     }
 
     public int getWeight() {
