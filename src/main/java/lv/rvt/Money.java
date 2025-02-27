@@ -6,8 +6,13 @@ public class Money {
     private final int cents;
 
     public Money(int euros, int cents) {
-        this.euros = euros;
-        this.cents = cents;
+        if (euros < 0 || cents < 0) {
+            this.euros = 0;
+            this.cents = 0;
+        } 
+        else {
+            this.euros = euros;
+            this.cents = cents;}
     }
 
     public int euros() {
@@ -28,10 +33,15 @@ public class Money {
     }
 
     public Money plus(Money addition) {
-        Money newMoney = new Money(euros() + addition.euros(), cents() + addition.cents()); // create a new Money object that has the correct worth
+        int euros = this.euros + addition.euros();
+        int cents = this.cents + addition.cents();
+        if (cents > 99) {
+            euros++;
+            cents-=100;
+        }
     
         // return the new Money object
-        return newMoney;
+        return new Money(euros, cents);
     }
 
     public boolean lessThan(Money compared) {
@@ -47,17 +57,21 @@ public class Money {
     }
 
     public Money minus(Money decreaser) {
-        Money minusMoney = new Money(euros() - decreaser.euros(), cents() - decreaser.cents());
         
-        if (minusMoney.cents() < 0) {
-            minusMoney = new Money(minusMoney.euros() - 1, minusMoney.cents() + 100);
+        if (cents() - decreaser.cents() < 0) {
+            Money newMoney = new Money(euros() - decreaser.euros() - 1, cents() - decreaser.cents() + 100);
+            return newMoney;
         }
-
-        if (minusMoney.euros() < 0) {
-            minusMoney = new Money(0, 0);
+        
+        else if (euros() - decreaser.euros() < 0) {
+            Money newMoney = new Money(0, 0);
+            return newMoney;
             
         }
-
-        return minusMoney;
+        else {
+            Money newMoney = new Money(euros() - decreaser.euros(), cents() - decreaser.cents());
+            return newMoney;
+        }
+        
     }
 }
